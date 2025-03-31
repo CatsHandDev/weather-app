@@ -1,13 +1,13 @@
 import './App.css'
-import { Suspense, lazy } from 'react'
+import { Suspense } from 'react'
+import Weather from './component/Weather'
 
-// Works also with SSR as expected
-const Card = lazy(() => import('./Card'))
 
 function App() {
   return (
     <Suspense>
-
+      <h1>天気情報表示アプリ</h1>
+      <Weather />
     </Suspense>
   )
 }
