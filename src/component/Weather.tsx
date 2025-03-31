@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchWeather } from "../api/Weather";
+import { fetchWeather } from "../api/weather";
 
 const Weather = () => {
   const [city, setCity] = useState("");
@@ -28,6 +28,7 @@ const Weather = () => {
           <p>気温: {weather.current.temp_c}°C</p>
           <p>天気: {weather.current.condition.text}</p>
           <img src={weather.current.condition.icon} alt="天気アイコン" />
+          <p>取得日時: {weather.location.localtime}</p>  {/* 日付を表示 */}
         </div>
       )}
     </div>
