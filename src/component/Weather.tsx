@@ -11,8 +11,19 @@ const Weather = () => {
     setWeather(data);
   };
 
+  // 天気に応じた背景画像を設定
+  const getBackgroundImage = () => {
+    if (!weather) return "default.jpg"; // デフォルト画像
+    const condition = weather.current.condition.text.toLowerCase();
+
+    if (condition.includes("sunny")) return "sunny.jpg";
+    if (condition.includes("rain")) return "rainy.jpg";
+    if (condition.includes("cloud")) return "cloudy.jpg";
+    return "default.jpg";
+  };
+
   return (
-    <div>
+    <div style={{ backgroundImage: `url(/images/${getBackgroundImage()})`, backgroundSize: "cover", minHeight: "100vh" }}>
       <h2>天気情報アプリ</h2>
       <input
         type="text"
@@ -28,7 +39,7 @@ const Weather = () => {
           <p>気温: {weather.current.temp_c}°C</p>
           <p>天気: {weather.current.condition.text}</p>
           <img src={weather.current.condition.icon} alt="天気アイコン" />
-          <p>取得日時: {weather.location.localtime}</p>  {/* 日付を表示 */}
+          <p>取得日時: {weather.location.localtime}</p>
         </div>
       )}
     </div>
