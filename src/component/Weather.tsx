@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchWeather } from "../api/weather";
+import { fetchWeather } from "../api/Weather";
 
 const Weather = () => {
   const [city, setCity] = useState("");
@@ -13,7 +13,7 @@ const Weather = () => {
 
   return (
     <div>
-      <h2>天気情報アプリ</h2>
+      <h2>天気情報アプリ - Main</h2>
       <input
         type="text"
         placeholder="都市名を入力"
