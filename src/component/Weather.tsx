@@ -23,7 +23,7 @@ const Weather = () => {
   };
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(/images/${getBackgroundImage()})`, backgroundSize: "cover", minHeight: "100vh" }}>
       <h2>天気情報アプリ - Main</h2>
       <input
         type="text"
